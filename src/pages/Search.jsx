@@ -3,7 +3,8 @@ import { useSearchParams } from 'react-router-dom'
 
 function Search() {
     const [ searchParams, setSearchParams ] = useSearchParams()
-    const [ inputQuery, setInputQuery ] = useState(searchParams.get("q") || "")
+    const query = searchParams.get("q")
+    const [ inputQuery, setInputQuery ] = useState(query || "")
 
     return (
         <div>
@@ -14,7 +15,7 @@ function Search() {
                 <input value={inputQuery} onChange={e => setInputQuery(e.target.value)} />
                 <button type="submit">Search</button>
             </form>
-            <h2>Search query: {searchParams.get("q")}</h2>
+            <h2>Search query: {query}</h2>
         </div>
     )
 }
