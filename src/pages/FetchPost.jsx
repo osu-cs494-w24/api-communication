@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 const userId = 1234
 
-function Post() {
+export default function Post() {
     const [ title, setTitle ] = useState("")
     const [ body, setBody ] = useState("")
     return (
@@ -21,5 +21,3 @@ function Post() {
         </form>
     )
 }
-
-export default Post

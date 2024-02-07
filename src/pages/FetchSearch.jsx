@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-function Search() {
+export default function Search() {
     const [ searchParams, setSearchParams ] = useSearchParams()
     const query = searchParams.get("q")
     const [ inputQuery, setInputQuery ] = useState(query || "")
@@ -19,5 +19,3 @@ function Search() {
         </div>
     )
 }
-
-export default Search

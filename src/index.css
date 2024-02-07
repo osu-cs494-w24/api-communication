@@ -27,3 +27,16 @@ button {
 button:hover {
   background-color: #71b5ed;
 }
+
+.page-container {
+  display: flex;
+}
+
+nav {
+  margin-right: 32px;
+  padding-right: 32px;
+}
+
+nav .active {
+  background-color: #f3d8ed;
+}
