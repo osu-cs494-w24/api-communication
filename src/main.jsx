@@ -7,7 +7,7 @@ import FetchSearch from './pages/FetchSearch'
 import FetchPost from './pages/FetchPost'
 import QuerySearch from './pages/QuerySearch'
 import QueryPost from './pages/QueryPost'
-import RouterSearch from './pages/RouterSearch'
+import RouterOrgRepos from './pages/RouterOrgRepos'
 import RouterPost from './pages/RouterPost'
 
 import './index.css'
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
             { path: "fetch-post", element: <FetchPost /> },
             { path: "query-search", element: <QuerySearch /> },
             { path: "query-post", element: <QueryPost /> },
-            { path: "router-search", element: <RouterSearch /> },
+            { path: "org-repos/:org", element: <RouterOrgRepos /> },
             { path: "router-post", element: <RouterPost /> },
             { index: true, element: <Navigate to="/fetch-search" replace /> }
         ]
