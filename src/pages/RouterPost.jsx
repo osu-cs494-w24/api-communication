@@ -1,23 +1,36 @@
 import { useState } from 'react'
+import { Form, useActionData } from 'react-router-dom'
 
 const userId = 1234
 
+export async function action({ request, params }) {
+    const data = Object.fromEntries(await request.formData())
+    console.log("== action was called, data:", data)
+    return fetch(
+        "https://jsonplaceholder.typicode.com/posts",
+        {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        }
+    )
+}
+
 export default function Post() {
-    const [ title, setTitle ] = useState("")
-    const [ body, setBody ] = useState("")
+    const response = useActionData()
+    console.log("== response:", response)
     return (
-        <form onSubmit={e => {
-            e.preventDefault()
-        }}>
+        <Form method="POST">
+            <input type="hidden" name="userId" value={userId} />
             <div>
-                <input placeholder="Title" value={title} onChange={e => setTitle(e.target.value)} />
+                <input placeholder="Title" name="title" />
             </div>
             <div>
-                <textarea placeholder="Body" value={body} onChange={e => setBody(e.target.value)} />
+                <textarea placeholder="Body" name="body" />
             </div>
             <div>
                 <button>Submit</button>
             </div>
-        </form>
+        </Form>
     )
 }
